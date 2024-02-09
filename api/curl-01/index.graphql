@@ -18,22 +18,22 @@ type Mutation {
   ): InsertSetResponse
     @rest(
       method: POST
-      endpoint: "https://eu-central-1.aws.data.mongodb-api.com/app/data-dthng/endpoint/data/v1/action/insertOne"
+      endpoint: "https://eu-west-2.aws.data.mongodb-api.com/app/data-vmvzf/endpoint/data/v1/action/insertOne"
       headers: [
         { name: "accept", value: "application/json" }
         { name: "access-control-request-headers", value: "*" }
         {
           name: "apikey"
-          value: "8HRrSjxvsScn3TgmTkmoGxIwvbczFvVTF0YIq3DlM1Q1KPEI5y4DhI3SzBkVYV9Z"
+          value: "5OcwIlnZXnVnnYIYfCCzxMXqmTShrgDO1TgZssdahZg83xP82OMW4zRSZWzG6jBr"
         }
       ]
       # postbody: """
       # {
-      #   "collection": "sets",
-      #   "dataSource": "Cluster1",
-      #   "database": "workouts",
-      #   "document": "{{ .Get "document" }}"
-      # }
+      #  "collection": "sets",
+      #  "dataSource": "Cluster0",
+      #  "database": "workouts",
+      #  "document": "{{ .Get "document" }}"
+      #  }
       # """
     )
 }

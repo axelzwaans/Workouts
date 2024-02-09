@@ -13,23 +13,19 @@ type Query {
   sets(exercise: String!, username: String!): Root
     @rest(
       method: POST
-      endpoint: "https://eu-central-1.aws.data.mongodb-api.com/app/data-dthng/endpoint/data/v1/action/find"
+      endpoint: "https://eu-west-2.aws.data.mongodb-api.com/app/data-vmvzf/endpoint/data/v1"
       headers: [
         { name: "access-control-request-headers", value: "*" }
         {
           name: "api-key"
-          value: "8HRrSjxvsScn3TgmTkmoGxIwvbczFvVTF0YIq3DlM1Q1KPEI5y4DhI3SzBkVYV9Z"
+          value: "5OcwIlnZXnVnnYIYfCCzxMXqmTShrgDO1TgZssdahZg83xP82OMW4zRSZWzG6jBr"
         }
       ]
       postbody: """
       {
         "collection": "sets",
-        "dataSource": "Cluster1",
-        "database": "workouts",
-        "filter": {
-          "exercise": "{{ .Get "exercise" }}",
-          "username": "{{ .Get "username" }}"
-        }
+        "dataSource": "Cluster0",
+        "database": "workouts"
       }
       """
     )
