@@ -46,8 +46,6 @@ const NewSetInput = ({ exerciseName }) => {
     mutate(newSet);
   };
 
-  console.log(error);
-
   return (
     <View style={styles.container}>
       <View style={styles.row}>

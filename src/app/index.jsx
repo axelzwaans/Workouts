@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -6,15 +6,15 @@ import {
   FlatList,
   ActivityIndicator,
   Button,
-} from 'react-native';
-import ExerciseListItem from '../components/ExerciseListItem';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { gql } from 'graphql-request';
-import client from '../graphqlClient';
-import { Redirect, Stack } from 'expo-router';
-import { useAuth } from '../providers/AuthContext';
-import { useState } from 'react';
-import { useDebounce } from '@uidotdev/usehooks';
+} from "react-native";
+import ExerciseListItem from "../components/ExerciseListItem";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { gql } from "graphql-request";
+import client from "../graphqlClient";
+import { Redirect, Stack } from "expo-router";
+import { useAuth } from "../providers/AuthContext";
+import { useState } from "react";
+import { useDebounce } from "@uidotdev/usehooks";
 
 const exercisesQuery = gql`
   query exercises($muscle: String, $name: String, $offset: Int) {
@@ -27,12 +27,12 @@ const exercisesQuery = gql`
 `;
 
 export default function ExercisesScreen() {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const debouncedSearchTerm = useDebounce(search.trim(), 1000);
 
   const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ['exercises', debouncedSearchTerm],
+      queryKey: ["exercises", debouncedSearchTerm],
       queryFn: ({ pageParam }) =>
         client.request(exercisesQuery, {
           offset: pageParam,
@@ -61,7 +61,7 @@ export default function ExercisesScreen() {
   }
 
   if (!username) {
-    return <Redirect href={'/auth'} />;
+    return <Redirect href={"/auth"} />;
   }
 
   const exercises = data?.pages.flatMap((page) => page.exercises);
@@ -71,7 +71,7 @@ export default function ExercisesScreen() {
       <Stack.Screen
         options={{
           headerSearchBarOptions: {
-            placeholder: 'Search...',
+            placeholder: "Search exercises",
             onChangeText: (event) => setSearch(event.nativeEvent.text),
             hideWhenScrolling: false,
           },
@@ -97,6 +97,6 @@ export default function ExercisesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
 });

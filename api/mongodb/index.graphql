@@ -13,7 +13,7 @@ type Query {
   sets(exercise: String!, username: String!): Root
     @rest(
       method: POST
-      endpoint: "https://eu-west-2.aws.data.mongodb-api.com/app/data-vmvzf/endpoint/data/v1"
+      endpoint: "https://eu-west-2.aws.data.mongodb-api.com/app/data-vmvzf/endpoint/data/v1/action/find"
       headers: [
         { name: "access-control-request-headers", value: "*" }
         {
@@ -26,8 +26,10 @@ type Query {
         "collection": "sets",
         "dataSource": "Cluster0",
         "database": "workouts",
-        filter: {
+        "filter": {
           "exercise": "{{ .Get "exercise" }}",
+          "username": "{{ .Get "username" }}"
+
         }
       }
       """
