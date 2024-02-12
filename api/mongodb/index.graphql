@@ -25,7 +25,10 @@ type Query {
       {
         "collection": "sets",
         "dataSource": "Cluster0",
-        "database": "workouts"
+        "database": "workouts",
+        filter: {
+          "exercise": "{{ .Get "exercise" }}",
+        }
       }
       """
     )

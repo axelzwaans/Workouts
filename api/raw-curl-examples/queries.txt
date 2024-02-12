@@ -2,17 +2,15 @@ savinvadim1312
 J8qMtDrNcB4zfmfm
 jaPQm9h3wnS64ven64ukmrzs3PKHupKxFGTtxSbfT8oDzCMFTgnvix75nsDGir8S
 
-curl --request POST 'https://eu-central-1.aws.data.mongodb-api.com/app/data-dthng/endpoint/data/v1/action/find' \
+curl --request POST "https://eu-west-2.aws.data.mongodb-api.com/app/data-vmvzf/endpoint/data/v1/action/find" \
 --header 'Content-Type: application/json' \
 --header 'Access-Control-Request-Headers: *' \
---header 'api-key: jaPQm9h3wnS64ven64ukmrzs3PKHupKxFGTtxSbfT8oDzCMFTgnvix75nsDGir8S' \
+--header 'api-key: 5OcwIlnZXnVnnYIYfCCzxMXqmTShrgDO1TgZssdahZg83xP82OMW4zRSZWzG6jBr' \
 --data-raw '{
     "collection":"sets",
     "database":"workouts",
-    "dataSource":"Cluster1",
-    "filter": {
-      "exercise": "T-Bar Row with Handle"
-    }
+    "dataSource":"Cluster0",
+    "filter": {"exercise": "Pushups"}
 }'
 
 
